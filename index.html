@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="gu">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gujarat Tourism</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial,sans-serif;
+}
+
+body{
+  color:white;
+  background:#2b1808;
+}
+
+.page{
+  display:none;
+  min-height:100vh;
+}
+
+.active{
+  display:block;
+}
+
+/* HOME PAGE */
+
+.hero{
+  min-height:100vh;
+  position:relative;
+  overflow:hidden;
+}
+
+.hero img.hero-bg{
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  z-index:-2;
+}
+
+.hero::after{
+  content:"";
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.45);
+  z-index:-1;
+}
+
+/* NAVBAR */
+
+nav{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:20px 60px;
+  border-bottom:1px solid rgba(255,255,255,0.2);
+}
+
+.logo{
+  font-size:28px;
+  font-weight:bold;
+  color:#f4d35e;
+}
+
+.menu{
+  list-style:none;
+  display:flex;
+  gap:25px;
+  align-items:center;
+}
+
+.menu li{
+  position:relative;
+}
+
+.menu a{
+  text-decoration:none;
+  color:white;
+  padding:10px;
+  display:block;
+  cursor:pointer;
+}
+
+.menu a:hover{
+  color:#ff8c42;
+}
+
+.dropdown-content{
+  display:none;
+  position:absolute;
+  top:100%;
+  left:0;
+  background:rgba(0,0,0,0.95);
+  min-width:220px;
+  border-radius:8px;
+  overflow:hidden;
+  z-index:999;
+}
+
+.dropdown-content a{
+  padding:12px;
+  font-size:14px;
+  border-bottom:1px solid rgba(255,255,255,0.1);
+}
+
+.dropdown:hover .dropdown-content{
+  display:block;
+}
+
+/* HOME CONTENT */
+
+.content{
+  text-align:center;
+  padding-top:180px;
+}
+
+.content h1{
+  font-size:70px;
+  color:#f4d35e;
+  text-shadow:2px 2px 8px black;
+}
+
+/* PLACE PAGE */
+
+.place-page{
+  text-align:center;
+  padding-bottom:40px;
+}
+
+.place-nav{
+  padding:20px 60px;
+  border-bottom:1px solid rgba(255,255,255,0.2);
+}
+
+.back{
+  background:green;
+  padding:15px;
+}
+
+.back a{
+  color:white;
+  text-decoration:none;
+  cursor:pointer;
+}
+
+.place-page h1{
+  margin-top:30px;
+  color:#f4d35e;
+  font-size:40px;
+}
+
+.slider{
+  width:80%;
+  max-width:900px;
+  margin:30px auto;
+  overflow:hidden;
+  border-radius:12px;
+}
+
+.slides{
+  display:flex;
+  width:400%;
+  animation:slide 9s infinite;
+}
+
+.slides img{
+  width:100%;
+  height:450px;
+  object-fit:cover;
+}
+
+@keyframes slide{
+0%{margin-left:0;}
+25%{margin-left:0;}
+30%{margin-left:-100%;}
+50%{margin-left:-100%;}
+55%{margin-left:-200%;}
+75%{margin-left:-200%;}
+80%{margin-left:-300%;}
+100%{margin-left:-300%;}
+}
+
+.info{
+  max-width:900px;
+  margin:auto;
+  line-height:1.9;
+  font-size:18px;
+  padding:20px;
+}
+
+/* DIFFERENT BACKGROUND COLORS */
+
+#statue{
+  background:linear-gradient(#0f2027,#203a43,#2c5364);
+}
+
+#gir{
+  background:linear-gradient(#134e13,#2c7744,#0f3d0f);
+}
+
+#somnath{
+  background:linear-gradient(#1e3c72,#2a5298);
+}
+
+#dwarka{
+  background:linear-gradient(#42275a,#734b6d);
+}
+
+#kutch{
+  background:linear-gradient(#c79081,#dfa579);
+}
+
+/* DIFFERENT BACKGROUND COLORS */
+
+/* Hotels Pages Colors */
+
+#luxury{
+  background: linear-gradient(#1a1a2e, #16213e, #0f3460);
+}
+
+#budget{
+  background: linear-gradient(#3a3a3a, #5a5a5a, #7a7a7a);
+}
+
+#vip{
+  background: linear-gradient(#4b134f, #6a0572, #9d0191);
+}
+
+#tourcontact{
+  background: linear-gradient(#0f2027, #203a43, #2c5364);
+}
+
+#bookinghelp{
+  background: linear-gradient(#42275a, #734b6d, #a044ff);
+}
+
+/* PACKAGES PAGES BACKGROUND COLORS */
+
+#family{
+  background: linear-gradient(#ff9966, #ff5e62);
+}
+
+#religious{
+  background: linear-gradient(#1e3c72, #2a5298);
+}
+
+#adventure{
+  background: linear-gradient(#134e13, #2c7744, #0f3d0f);
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+nav{
+  flex-direction:column;
+  padding:20px;
+}
+
+.menu{
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:10px;
+}
+
+.content h1{
+  font-size:42px;
+}
+
+.slides img{
+  height:250px;
+}
+
+.place-nav{
+  padding:20px;
+}
+
+}
+</style>
+</head>
+
+<body>
+
+<!-- HOME PAGE -->
+
+<section id="home" class="page active hero">
+
+<img src="21.png" class="hero-bg">
+
+<nav>
+<div class="logo">Gujarati Tourism</div>
+
+<ul class="menu">
+
+<li><a onclick="showPage('home')">HOME</a></li>
+
+<li class="dropdown">
+<a>PLACE ▼</a>
+<div class="dropdown-content">
+<a onclick="showPage('statue')">Statue of Unity</a>
+<a onclick="showPage('gir')">Gir National Park</a>
+<a onclick="showPage('somnath')">Somnath Temple</a>
+<a onclick="showPage('dwarka')">Dwarkadhish Temple</a>
+<a onclick="showPage('kutch')">Rann of Kutch</a>
+</div>
+</li>
+
+<li class="dropdown">
+<a>PACKAGES ▼</a>
+<div class="dropdown-content">
+<a onclick="showPage('family')">Family Package</a>
+<a onclick="showPage('religious')">Religious Package</a>
+<a onclick="showPage('adventure')">Adventure Package</a>
+</div>
+</li>
+
+<li class="dropdown">
+<a>HOTELS ▼</a>
+<div class="dropdown-content">
+<a onclick="showPage('luxury')">Luxury Hotels</a>
+<a onclick="showPage('budget')">Budget Hotels</a>
+<a onclick="showPage('vip')">VIP Hotels</a>
+</div>
+</li>
+
+<li class="dropdown">
+<a>CONTACT US ▼</a>
+<div class="dropdown-content">
+<a onclick="showPage('tourcontact')">Tour Contact</a>
+<a onclick="showPage('bookinghelp')">Booking Help</a>
+</div>
+</li>
+</ul>
+</nav>
+
+<div class="content">
+<h1>GUJARAT TOURISM</h1>
+</div>
+
+</section>
+
+<section id="family" class="page package-page">
+<div class="back"><a onclick="showPage('home')">⬅ Back</a></div>
+<h1>Family Package</h1>
+<div class="price-box">
+<h2>3 Days / 2 Nights</h2>
+<div class="price">₹12,999</div>
+<p>Hotel + Food + Local Travel + Sightseeing Included</p>
+</div>
+<div class="form-box">
+<h2>Package Registration</h2>
+<input type="text" placeholder="Full Name">
+<input type="text" placeholder="Mobile Number">
+<input type="email" placeholder="Email Address">
+<input type="number" placeholder="Number of Persons">
+<button>Register Now</button>
+</div>
+</section>
+
+<section id="religious" class="page package-page">
+<div class="back"><a onclick="showPage('home')">⬅ Back</a></div>
+<h1>Religious Package</h1>
+<div class="price-box">
+<h2>4 Days / 3 Nights</h2>
+<div class="price">₹15,999</div>
+<p>Somnath + Dwarka + Stay + Food + Travel Included</p>
+</div>
+<div class="form-box">
+<h2>Package Registration</h2>
+<input type="text" placeholder="Full Name">
+<input type="text" placeholder="Mobile Number">
+<input type="email" placeholder="Email Address">
+<input type="number" placeholder="Number of Persons">
+<button>Register Now</button>
+</div>
+</section>
+
+<section id="adventure" class="page package-page">
+<div class="back"><a onclick="showPage('home')">⬅ Back</a></div>
+<h1>Adventure Package</h1>
+<div class="price-box">
+<h2>5 Days / 4 Nights</h2>
+<div class="price">₹18,999</div>
+<p>Gir Safari + Kutch + Activities + Stay Included</p>
+</div>
+<div class="form-box">
+<h2>Package Registration</h2>
+<input type="text" placeholder="Full Name">
+<input type="text" placeholder="Mobile Number">
+<input type="email" placeholder="Email Address">
+<input type="number" placeholder="Number of Persons">
+<button>Register Now</button>
+</div>
+</section>
+
+<!-- CONTACT US માટે નવા pages add કરેલા code નો ભાગ -->
+
+<!-- TOUR CONTACT PAGE -->
+<section id="tourcontact" class="page package-page">
+<div class="back"><a onclick="showPage('home')">⬅ Back</a></div>
+<h1>Tour Contact</h1>
+
+<div class="form-box">
+<h2>Tour Inquiry Form</h2>
+<input type="text" placeholder="Full Name">
+<input type="text" placeholder="Mobile Number">
+<input type="email" placeholder="Email Address">
+<input type="text" placeholder="Travel Place">
+<textarea placeholder="Your Message"></textarea>
+<button>Submit</button>
+</div>
+</section>
+
+
+
+<!-- BOOKING HELP PAGE -->
+<section id="bookinghelp" class="page package-page">
+<div class="back"><a onclick="showPage('home')">⬅ Back</a></div>
+<h1>Booking Help</h1>
+
+<div class="form-box">
+<h2>Booking Support Form</h2>
+<input type="text" placeholder="Booking ID">
+<input type="text" placeholder="Full Name">
+<input type="text" placeholder="Mobile Number">
+<textarea placeholder="Problem Details"></textarea>
+<button>Submit</button>
+</div>
+</section>
+
+<!-- CONTACT US dropdown માં આ code replace કરો -->
+<li class="dropdown">
+<a>CONTACT US ▼</a>
+<div class="dropdown-content">
+<a onclick="showPage('tourcontact')">Tour Contact</a>
+<a onclick="showPage('bookinghelp')">Booking Help</a>
+</div>
+</li>
+
+<!-- CSS add -->
+<style>
+.form-box{
+  width:90%;
+  max-width:500px;
+  margin:30px auto;
+  background:rgba(255,255,255,0.1);
+  padding:30px;
+  border-radius:12px;
+}
+
+.form-box h2{
+  margin-bottom:20px;
+  color:#f4d35e;
+}
+
+.form-box input,
+.form-box textarea{
+  width:100%;
+  padding:14px;
+  margin:10px 0;
+  border:none;
+  border-radius:8px;
+  outline:none;
+}
+
+.form-box textarea{
+  height:120px;
+  resize:none;
+}
+
+.form-box button{
+  width:100%;
+  padding:14px;
+  background:#ff8c42;
+  color:white;
+  border:none;
+  border-radius:8px;
+  font-size:16px;
+  cursor:pointer;
+}
+
+.form-box button:hover{
+  background:#e6762f;
+}
+</style>
+
+
+<!-- LUXURY HOTEL PAGE -->
+<section id="luxury" class="page place-page">
+
+<div class="back">
+<a onclick="showPage('home')">⬅ Back</a>
+</div>
+
+<nav class="place-nav">
+<div class="logo">Gujarati Tourism</div>
+
+<ul class="menu">
+<li><a onclick="showPage('home')">HOME</a></li>
+<li><a onclick="showPage('luxury')">HOTEL</a></li>
+</ul>
+</nav>
+
+<h1>Luxury Hotel</h1>
+
+<img src="22.jpeg">
+</div>
+</div>
+
+<div class="info">
+લક્ઝરી હોટેલ પ્રવાસીઓ માટે ખૂબ આરામદાયક અને વૈભવી રહેવાની સુવિધા આપે છે।
+અહીં મોટા અને સુંદર રૂમ ઉપલબ્ધ હોય છે।
+રૂમમાં AC, WiFi અને TV જેવી તમામ સુવિધાઓ હોય છે।
+સ્વિમિંગ પૂલ અને જિમ પણ ઉપલબ્ધ હોય છે।
+ફેમિલી અને VIP મહેમાનો માટે આ ઉત્તમ પસંદગી છે।
+અહીં રેસ્ટોરન્ટમાં સ્વાદિષ્ટ ભોજન મળે છે।
+સ્ટાફ ખૂબ સહાયક અને વિનમ્ર હોય છે।
+સુરક્ષા વ્યવસ્થા ખૂબ સારી હોય છે।
+પ્રવાસીઓને શાંતિપૂર્ણ વાતાવરણ મળે છે।
+ગુજરાત પ્રવાસ દરમિયાન લક્ઝરી હોટેલ ઉત્તમ અનુભવ આપે છે।
+</div>
+
+</section>
+
+
+<!-- BUDGET HOTEL PAGE -->
+<section id="budget" class="page place-page">
+
+<div class="back">
+<a onclick="showPage('home')">⬅ Back</a>
+</div>
+
+<nav class="place-nav">
+<div class="logo">Gujarati Tourism</div>
+
+<ul class="menu">
+<li><a onclick="showPage('home')">HOME</a></li>
+<li><a onclick="showPage('budget')">HOTEL</a></li>
+</ul>
+</nav>
+
+<h1>Budget Hotel</h1>
+
+<img src="25.png">
+</div>
+</div>
+
+<div class="info">
+બજેટ હોટેલ ઓછી કિંમતમાં સારી રહેવાની સુવિધા આપે છે।
+વિદ્યાર્થીઓ અને સામાન્ય પ્રવાસીઓ માટે આ યોગ્ય છે।
+અહીં સ્વચ્છ અને સરળ રૂમ ઉપલબ્ધ હોય છે।
+મૂળભૂત સુવિધાઓ જેવી કે પંખો, TV અને બેડ મળે છે।
+ભોજનની પણ સારી વ્યવસ્થા હોય છે।
+સ્ટાફ મિત્રતાપૂર્વક સેવા આપે છે।
+શહેરની નજીક હોવાથી પ્રવાસ સરળ બને છે।
+પરિવાર સાથે પણ અહીં રહેવું અનુકૂળ છે।
+ખર્ચ ઓછો અને સુવિધા સારી હોવાથી લોકપ્રિય છે।
+ગુજરાત પ્રવાસ માટે બજેટ હોટેલ સારી પસંદગી છે।
+</div>
+
+</section>
+
+
+<!-- VIP HOTEL PAGE -->
+<section id="vip" class="page place-page">
+
+<div class="back">
+<a onclick="showPage('home')">⬅ Back</a>
+</div>
+
+<nav class="place-nav">
+<div class="logo">Gujarati Tourism</div>
+
+<ul class="menu">
+<li><a onclick="showPage('home')">HOME</a></li>
+<li><a onclick="showPage('vip')">HOTEL</a></li>
+</ul>
+</nav>
+
+<h1>VIP Hotel</h1>
+
+<img src="26.png">
+</div>
+</div>
+
+<div class="info">
+VIP હોટેલ ખાસ મહેમાનો માટે વિશેષ સુવિધાઓ આપે છે।
+અહીં પ્રાઈવેટ સર્વિસ અને પ્રીમિયમ રૂમ ઉપલબ્ધ હોય છે।
+હોટેલનું ઇન્ટીરિયર ખૂબ આકર્ષક હોય છે।
+મોટા હોલ અને મીટિંગ રૂમ પણ હોય છે।
+વિદેશી મહેમાનો માટે ખાસ સેવા આપવામાં આવે છે।
+ભોજનની ગુણવત્તા ખૂબ ઉત્તમ હોય છે।
+24 કલાક રૂમ સર્વિસ ઉપલબ્ધ રહે છે।
+સુરક્ષા અને પ્રાઈવસીનું ખાસ ધ્યાન રાખવામાં આવે છે।
+વ્યવસાયિક લોકો માટે આ ઉત્તમ સ્થાન છે।
+VIP હોટેલ પ્રવાસને વધુ ખાસ બનાવે છે।
+</div>
+
+</section>
+
+<!-- STATUE -->
+
+<section id="statue" class="page place-page">
+
+
+
+<div class="back">
+<a onclick="showPage('home')">⬅ Back</a>
+</div>
+
+<nav class="place-nav">
+<div class="logo">Gujarati Tourism</div>
+
+<ul class="menu">
+<li><a onclick="showPage('home')">HOME</a></li>
+<li><a onclick="showPage('statue')">PLACE</a></li>
+</ul>
+</nav>
+
+<h1>Statue of Unity</h1>
+
+<div class="slider">
+<div class="slides">
+<img src="1.jpg">
+<img src="2.jpg">
+<img src="3.jpg">
+<img src="4.jpg">
+</div>
+</div>
+
+<div class="info">
+સ્ટેચ્યુ ઓફ યુનિટી ગુજરાતના કેવડિયા નજીક આવેલ વિશ્વની સૌથી ઊંચી પ્રતિમા છે. આ પ્રતિમા સરદાર વલ્લભભાઈ પટેલને સમર્પિત છે. તેની ઊંચાઈ 182 મીટર છે. 31 ઓક્ટોબર 2018ના રોજ તેનું ઉદ્ઘાટન થયું હતું. આ સ્થળ ભારતની એકતા અને ગૌરવનું પ્રતિક છે. અહીં સરદાર પટેલનું જીવન દર્શાવતું મ્યુઝિયમ આવેલ છે. નર્મદા નદીના કિનારે આ સ્થળ ખૂબ સુંદર લાગે છે. રાત્રે લાઇટિંગથી તેનો નજારો અદભૂત બને છે. અહીં લાખો પ્રવાસીઓ દર વર્ષે આવે છે. વેલી ઓફ ફ્લાવર્સ પણ નજીક આવેલ છે. બોટિંગ અને વ્યૂ ગેલેરી પણ પ્રસિદ્ધ છે. પરિવાર સાથે ફરવા માટે ઉત્તમ સ્થળ છે. અહીં પ્રવાસન સુવિધાઓ ખૂબ સારી છે. ગુજરાતના ગૌરવરૂપે આ પ્રતિમા ઓળખાય છે. દેશ-વિદેશના પ્રવાસીઓ માટે આ આકર્ષણનું કેન્દ્ર છે
+</div>
+
+</section>
+
+<!-- GIR -->
+
+<section id="gir" class="page place-page">
+
+<div class="back">
+<a onclick="showPage('home')">⬅ Back</a>
+</div>
+
+<nav class="place-nav">
+<div class="logo">Gujarati Tourism</div>
+
+<ul class="menu">
+<li><a onclick="showPage('home')">HOME</a></li>
+<li><a onclick="showPage('gir')">PLACE</a></li>
+</ul>
+</nav>
+
+<h1>Gir National Park</h1>
+
+<div class="slider">
+<div class="slides">
+<img src="5.jpg">
+<img src="6.jpg">
+<img src="7.jpg">
+<img src="8.jpg">
+</div>
+</div>
+
+<div class="info">
+ગિર નેશનલ પાર્ક ગુજરાતના જુનાગઢ જિલ્લામાં આવેલ છે. આ સ્થળ એશિયાટિક સિંહ માટે વિશ્વપ્રખ્યાત છે. દુનિયામાં માત્ર અહીં જ એશિયાટિક સિંહ જોવા મળે છે. અહીં જંગલ સફારીની વિશેષ સુવિધા છે. પ્રવાસીઓ જીપ સફારી દ્વારા જંગલમાં ફરવા જાય છે. અહીં ચિત્તા, હરણ, મગર અને અનેક પક્ષીઓ પણ જોવા મળે છે. કુદરત પ્રેમીઓ માટે આ ઉત્તમ સ્થળ છે. જંગલનું વાતાવરણ ખૂબ શાંત અને આકર્ષક છે. અહીં પ્રવાસ માટે શ્રેષ્ઠ સમય શિયાળો છે. ગિરના સિંહો ગુજરાતની શાન ગણાય છે. બાળકો માટે પણ આ સ્થળ શૈક્ષણિક છે. ફોટોગ્રાફી માટે સુંદર દૃશ્યો મળે છે. સ્થાનિક સંસ્કૃતિ પણ જોવા મળે છે. પ્રવાસીઓ માટે ગાઈડ ઉપલબ્ધ હોય છે. ગિર ભારતનું ગૌરવપૂર્ણ વન્યજીવન સ્થળ છે
+</div>
+
+</section>
+
+<!-- SOMNATH -->
+
+<section id="somnath" class="page place-page">
+
+<div class="back">
+<a onclick="showPage('home')">⬅ Back</a>
+</div>
+
+<nav class="place-nav">
+<div class="logo">Gujarati Tourism</div>
+
+<ul class="menu">
+<li><a onclick="showPage('home')">HOME</a></li>
+<li><a onclick="showPage('somnath')">PLACE</a></li>
+</ul>
+</nav>
+
+<h1>Somnath Temple</h1>
+
+<div class="slider">
+<div class="slides">
+<img src="9.jpg">
+<img src="10.jpg">
+<img src="11.jpg">
+<img src="12.jpg">
+</div>
+</div>
+
+<div class="info">
+સોમનાથ મંદિર ગુજરાતના વેરાવળ નજીક આવેલ છે. આ મંદિર ભગવાન શિવને સમર્પિત છે. ભારતના 12 જ્યોતિર્લિંગોમાંનું આ પ્રથમ જ્યોતિર્લિંગ માનવામાં આવે છે. મંદિરનો ઇતિહાસ ખૂબ પ્રાચીન છે. અનેક વખત આ મંદિરનું પુનર્નિર્માણ થયું છે. અરબી સમુદ્રના કિનારે આવેલ હોવાથી તેનું દૃશ્ય અદભૂત છે. સાંજની આરતી ખૂબ પ્રસિદ્ધ છે. અહીં લાખો ભક્તો દર્શન માટે આવે છે. મંદિરની કળા અને સ્થાપત્ય ખૂબ સુંદર છે. લાઇટ અને સાઉન્ડ શો પણ આકર્ષક છે. આસપાસ બીચ વિસ્તાર પ્રવાસીઓને ગમે છે. ધાર્મિક અને ઐતિહાસિક મહત્વ ધરાવે છે. ભારતની સંસ્કૃતિનું પ્રતિક છે. અહીં શાંતિ અને ભક્તિનો અનુભવ થાય છે. સોમનાથ ગુજરાતનું મહત્વનું તીર્થસ્થળ છે.</div>
+
+</section>
+
+<!-- DWARKA -->
+
+<section id="dwarka" class="page place-page">
+
+<div class="back">
+<a onclick="showPage('home')">⬅ Back</a>
+</div>
+
+<nav class="place-nav">
+<div class="logo">Gujarati Tourism</div>
+
+<ul class="menu">
+<li><a onclick="showPage('home')">HOME</a></li>
+<li><a onclick="showPage('dwarka')">PLACE</a></li>
+</ul>
+</nav>
+
+<h1>Dwarkadhish Temple</h1>
+
+<div class="slider">
+<div class="slides">
+<img src="13.jpg">
+<img src="14.jpg">
+<img src="15.jpg">
+<img src="16.jpg">
+</div>
+</div>
+
+<div class="info">
+દ્વારકાધીશ મંદિર ગુજરાતના દ્વારકા શહેરમાં આવેલ છે.
+આ મંદિર ભગવાન શ્રીકૃષ્ણને સમર્પિત છે.
+આ સ્થળ ચાર ધામમાંનું એક પવિત્ર ધામ માનવામાં આવે છે.
+મંદિર ખૂબ પ્રાચીન અને ઐતિહાસિક મહત્વ ધરાવે છે.
+અહીં દર વર્ષે લાખો ભક્તો દર્શન માટે આવે છે.
+મંદિરનો શિખર ખૂબ ઊંચો અને આકર્ષક છે.
+ગોમતી નદી મંદિરની નજીક વહે છે.
+સાંજની આરતી ખૂબ જ પ્રસિદ્ધ છે.
+અહીં ભક્તિ અને શાંતિનો વિશેષ અનુભવ થાય છે.
+જન્માષ્ટમીના તહેવારે વિશેષ ઉજવણી થાય છે.
+મંદિરની કળા અને સ્થાપત્ય અદ્ભુત છે.
+સમુદ્ર કિનારે હોવાથી દૃશ્ય ખૂબ સુંદર લાગે છે.
+પરિવાર સાથે ફરવા માટે આ ઉત્તમ સ્થળ છે.
+ધાર્મિક પ્રવાસ માટે આ સ્થળ ખૂબ જાણીતું છે.
+દ્વારકા ગુજરાતનું મહત્વનું તીર્થસ્થળ છે.</div>
+
+</section>
+
+<!-- KUTCH -->
+
+<section id="kutch" class="page place-page">
+
+<div class="back">
+<a onclick="showPage('home')">⬅ Back</a>
+</div>
+
+<nav class="place-nav">
+<div class="logo">Gujarati Tourism</div>
+
+<ul class="menu">
+<li><a onclick="showPage('home')">HOME</a></li>
+<li><a onclick="showPage('kutch')">PLACE</a></li>
+</ul>
+</nav>
+
+<h1>Rann of Kutch</h1>
+
+<div class="slider">
+<div class="slides">
+<img src="18.jpg">
+<img src="17.jpg">
+<img src="19.jpg">
+<img src="20.jpg">
+</div>
+</div>
+
+<div class="info">
+રણ ઓફ કચ્છ ગુજરાતના કચ્છ જિલ્લામાં આવેલ છે.
+આ સ્થળ તેની સફેદ મીઠાની જમીન માટે વિશ્વપ્રખ્યાત છે.
+અહીંનો સફેદ રણ ચાંદની રાત્રે અદ્ભુત લાગે છે.
+રણોત્સવ અહીંનું સૌથી પ્રસિદ્ધ આકર્ષણ છે.
+રણોત્સવ દરમિયાન સાંસ્કૃતિક કાર્યક્રમો યોજાય છે.
+સ્થાનિક હસ્તકલા અને કચ્છી કળા જોવા મળે છે.
+અહીં ઊંટ સવારી પણ ખૂબ લોકપ્રિય છે.
+પ્રવાસીઓ માટે ટેન્ટ સિટી બનાવવામાં આવે છે.
+શિયાળામાં અહીં ફરવાનો શ્રેષ્ઠ સમય ગણાય છે.
+સૂર્યોદય અને સૂર્યાસ્તનો નજારો ખૂબ સુંદર હોય છે.
+સ્થાનિક ભોજન પ્રવાસીઓને ખૂબ ગમે છે.
+ફોટોગ્રાફી માટે આ સ્થળ સ્વર્ગ સમાન છે.
+દેશ-વિદેશના પ્રવાસીઓ અહીં મોટી સંખ્યામાં આવે છે.
+કચ્છની સંસ્કૃતિ અહીં જીવંત અનુભવાય છે.
+રણ ઓફ કચ્છ ગુજરાતનું ગૌરવપૂર્ણ પ્રવાસન સ્થળ છે.</div>
+
+</section>
+
+<script>
+function showPage(pageId){
+document.querySelectorAll('.page').forEach(function(page){
+page.classList.remove('active');
+});
+
+document.getElementById(pageId).classList.add('active');
+
+window.scrollTo(0,0);
+}
+</script>
+
+</body>
+</html>
